@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipamentos | Aquicultura</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a class="marca" href="../index.html">Aquicultura</a>
+            <p>Sistema de gestão de peixes e camarões</p>
+        </div>
+    </header>
+    <nav aria-label="Menu principal">
+      <div class="container menu">
+        <a href="../index.html">Início</a>
+        <a href="especies.html">Espécies</a>
+        <a href="tanques.html">Tanques</a>
+        <a href="lotes.html">Lotes</a>
+        <a href="alimentacao.html">Alimentação</a>
+        <a href="qualidade-agua.html">Qualidade da água</a>
+        <a href="tratamentos.html">Tratamentos</a>
+        <a href="mortalidade.html">Mortalidade</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="equipamentos.html">Equipamentos</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="fornecedores.html">Fornecedores</a>
+        <a href="manutencoes.html">Manutenções</a>
+        <a href="funcionarios.html">Funcionários</a>
+      </div>
+    </nav>
+    <main class="container">
+        <h1>Equipamentos</h1>
+<p class="subtitulo">Campos com * são obrigatórios.</p>
+<section class="painel modulo" data-tabela="equipamentos">
+    <h2>Equipamentos</h2>
+    
+    <form class="formulario">
+        <div class="campo">
+            <label for="equipamentos-nome">Nome do equipamento *</label>
+            <input type="text" id="equipamentos-nome" name="nome" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="equipamentos-tanque_id">Tanque</label>
+            <select id="equipamentos-tanque_id" name="tanque_id" data-origem="tanques" data-rotulo="identificacao"><option value="">Selecione</option></select>
+        </div>
+        
+        <div class="largura-total acoes">
+            <button type="submit">Cadastrar</button>
+            <button type="reset" class="secundario">Limpar / cancelar</button>
+        </div>
+    </form>
+    <p class="mensagem" role="status"></p>
+    <div class="consulta"><h3>Registros cadastrados</h3><button type="button" class="atualizar secundario">Atualizar</button></div>
+    <div class="tabela"><table>
+        <thead><tr><th>ID</th>
+                <th data-campo="nome">Nome do equipamento</th>
+                <th data-campo="tanque_id">Tanque</th>
+        <th>Ações</th></tr></thead><tbody></tbody>
+    </table></div>
+</section>
+    </main>
+    <footer>Sistema de Gestão de Aquicultura · Projeto escolar</footer>
+</body>
+</html>
