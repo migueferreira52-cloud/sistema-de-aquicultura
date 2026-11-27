@@ -1,0 +1,3 @@
+banco/*.db
+banco/*.db-*
+__pycache__/

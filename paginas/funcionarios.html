@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários | Aquicultura</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a class="marca" href="../index.html">Aquicultura</a>
+            <p>Sistema de gestão de peixes e camarões</p>
+        </div>
+    </header>
+    <nav aria-label="Menu principal">
+      <div class="container menu">
+        <a href="../index.html">Início</a>
+        <a href="especies.html">Espécies</a>
+        <a href="tanques.html">Tanques</a>
+        <a href="lotes.html">Lotes</a>
+        <a href="alimentacao.html">Alimentação</a>
+        <a href="qualidade-agua.html">Qualidade da água</a>
+        <a href="tratamentos.html">Tratamentos</a>
+        <a href="mortalidade.html">Mortalidade</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="equipamentos.html">Equipamentos</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="fornecedores.html">Fornecedores</a>
+        <a href="manutencoes.html">Manutenções</a>
+        <a href="funcionarios.html">Funcionários</a>
+      </div>
+    </nav>
+    <main class="container">
+        <h1>Funcionários</h1>
+<p class="subtitulo">Campos com * são obrigatórios.</p>
+<section class="painel modulo" data-tabela="funcionarios">
+    <h2>Funcionários</h2>
+    
+    <form class="formulario">
+        <div class="campo">
+            <label for="funcionarios-nome">Nome completo *</label>
+            <input type="text" id="funcionarios-nome" name="nome" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="funcionarios-cpf">CPF *</label>
+            <input type="text" id="funcionarios-cpf" name="cpf" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="funcionarios-cargo">Cargo</label>
+            <select id="funcionarios-cargo" name="cargo"><option value="">Selecione</option><option>Gerente de produção</option><option>Técnico em aquicultura</option><option>Operário de cultivo</option><option>Alimentador</option><option>Técnico de manutenção</option><option>Técnico de qualidade de água</option><option>Outro</option></select>
+        </div>
+        <div class="campo">
+            <label for="funcionarios-telefone">Telefone</label>
+            <input type="tel" id="funcionarios-telefone" name="telefone" maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="funcionarios-email">E-mail</label>
+            <input type="email" id="funcionarios-email" name="email" maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="funcionarios-situacao">Situação *</label>
+            <select id="funcionarios-situacao" name="situacao" required><option value="">Selecione</option><option>Ativo</option><option>Afastado</option></select>
+        </div>
+        <div class="campo largura-total">
+            <label for="funcionarios-observacoes">Observações</label>
+            <textarea id="funcionarios-observacoes" name="observacoes" rows="2"></textarea>
+        </div>
+        
+        <div class="largura-total acoes">
+            <button type="submit">Cadastrar</button>
+            <button type="reset" class="secundario">Limpar / cancelar</button>
+        </div>
+    </form>
+    <p class="mensagem" role="status"></p>
+    <div class="consulta"><h3>Registros cadastrados</h3><button type="button" class="atualizar secundario">Atualizar</button></div>
+    <div class="tabela"><table>
+        <thead><tr><th>ID</th>
+                <th data-campo="nome">Nome completo</th>
+                <th data-campo="cpf">CPF</th>
+                <th data-campo="cargo">Cargo</th>
+                <th data-campo="telefone">Telefone</th>
+                <th data-campo="email">E-mail</th>
+                <th data-campo="situacao">Situação</th>
+                <th data-campo="observacoes">Observações</th>
+        <th>Ações</th></tr></thead><tbody></tbody>
+    </table></div>
+</section>
+    </main>
+    <footer>Sistema de Gestão de Aquicultura · Projeto escolar</footer>
+</body>
+</html>
