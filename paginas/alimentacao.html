@@ -1,0 +1,96 @@
+{% extends "paginas/base.html" %}
+{% block titulo %}Alimentação{% endblock %}
+{% block conteudo %}
+<h1>Alimentação</h1>
+<p class="subtitulo">Campos com * são obrigatórios.</p>
+<section class="painel modulo" data-tabela="alimentacao">
+    <h2>Plano de alimentação</h2>
+    
+    <form class="formulario">
+        <div class="campo">
+            <label for="alimentacao-lote_id">Lote *</label>
+            <select id="alimentacao-lote_id" name="lote_id" required data-origem="lotes" data-rotulo="codigo"><option value="">Selecione</option></select>
+        </div>
+        <div class="campo">
+            <label for="alimentacao-racao">Ração *</label>
+            <input type="text" id="alimentacao-racao" name="racao" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="alimentacao-percentual_biomassa">% da biomassa por dia *</label>
+            <input type="number" id="alimentacao-percentual_biomassa" name="percentual_biomassa" required min="0.1" max="10" step="0.1">
+        </div>
+        <div class="campo">
+            <label for="alimentacao-frequencia">Frequência por dia *</label>
+            <input type="number" id="alimentacao-frequencia" name="frequencia" required min="1" step="1">
+        </div>
+        <div class="campo largura-total">
+            <label for="alimentacao-observacoes">Observações</label>
+            <textarea id="alimentacao-observacoes" name="observacoes" rows="2"></textarea>
+        </div>
+        
+        <div class="largura-total acoes">
+            <button type="submit">Cadastrar</button>
+            <button type="reset" class="secundario">Limpar</button>
+        </div>
+    </form>
+    <p class="mensagem" role="status"></p>
+    <div class="consulta"><h3>Registros cadastrados</h3><button type="button" class="atualizar secundario">Atualizar</button></div>
+    <div class="tabela"><table>
+        <thead><tr><th>ID</th>
+                <th data-campo="lote_id">Lote</th>
+                <th data-campo="racao">Ração</th>
+                <th data-campo="percentual_biomassa">% da biomassa por dia</th>
+                <th data-campo="frequencia">Frequência por dia</th>
+                <th data-campo="observacoes">Observações</th>
+        </tr></thead><tbody></tbody>
+    </table></div>
+</section>
+
+<section class="painel modulo" data-tabela="registro_alimentacao">
+    <h2>Registro de alimentação</h2>
+    <p>Selecione o ID de um plano de alimentação já cadastrado.</p>
+    <form class="formulario">
+        <div class="campo">
+            <label for="registro_alimentacao-data">Data *</label>
+            <input type="date" id="registro_alimentacao-data" name="data" required>
+        </div>
+        <div class="campo">
+            <label for="registro_alimentacao-alimentacao_id">Plano de alimentação *</label>
+            <select id="registro_alimentacao-alimentacao_id" name="alimentacao_id" required data-origem="alimentacao" data-rotulo="id"><option value="">Selecione</option></select>
+        </div>
+        <div class="campo">
+            <label for="registro_alimentacao-quantidade">Quantidade fornecida (kg) *</label>
+            <input type="number" id="registro_alimentacao-quantidade" name="quantidade" required min="0.01" step="0.01">
+        </div>
+        <div class="campo">
+            <label for="registro_alimentacao-horario">Horário</label>
+            <input type="time" id="registro_alimentacao-horario" name="horario">
+        </div>
+        <div class="campo largura-total">
+            <label for="registro_alimentacao-observacoes">Observações</label>
+            <textarea id="registro_alimentacao-observacoes" name="observacoes" rows="2"></textarea>
+        </div>
+        <div class="campo">
+            <label for="registro_alimentacao-funcionario_id">Funcionário responsável</label>
+            <select id="registro_alimentacao-funcionario_id" name="funcionario_id" data-origem="funcionarios" data-rotulo="nome"><option value="">Selecione</option></select>
+        </div>
+        
+        <div class="largura-total acoes">
+            <button type="submit">Cadastrar</button>
+            <button type="reset" class="secundario">Limpar</button>
+        </div>
+    </form>
+    <p class="mensagem" role="status"></p>
+    <div class="consulta"><h3>Registros cadastrados</h3><button type="button" class="atualizar secundario">Atualizar</button></div>
+    <div class="tabela"><table>
+        <thead><tr><th>ID</th>
+                <th data-campo="data">Data</th>
+                <th data-campo="alimentacao_id">Plano de alimentação</th>
+                <th data-campo="quantidade">Quantidade fornecida (kg)</th>
+                <th data-campo="horario">Horário</th>
+                <th data-campo="observacoes">Observações</th>
+                <th data-campo="funcionario_id">Funcionário responsável</th>
+        </tr></thead><tbody></tbody>
+    </table></div>
+</section>
+{% endblock %}

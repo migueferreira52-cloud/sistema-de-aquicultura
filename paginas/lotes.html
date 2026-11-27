@@ -1,0 +1,68 @@
+{% extends "paginas/base.html" %}
+{% block titulo %}Lotes{% endblock %}
+{% block conteudo %}
+<h1>Lotes</h1>
+<p class="subtitulo">Campos com * são obrigatórios.</p>
+<section class="painel modulo" data-tabela="lotes">
+    <h2>Lotes</h2>
+    
+    <form class="formulario">
+        <div class="campo">
+            <label for="lotes-codigo">Código do lote *</label>
+            <input type="text" id="lotes-codigo" name="codigo" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="lotes-especie_id">Espécie *</label>
+            <select id="lotes-especie_id" name="especie_id" required data-origem="especies" data-rotulo="nome_comum"><option value="">Selecione</option></select>
+        </div>
+        <div class="campo">
+            <label for="lotes-tanque_id">Tanque *</label>
+            <select id="lotes-tanque_id" name="tanque_id" required data-origem="tanques" data-rotulo="identificacao"><option value="">Selecione</option></select>
+        </div>
+        <div class="campo">
+            <label for="lotes-data_alojamento">Data de alojamento *</label>
+            <input type="date" id="lotes-data_alojamento" name="data_alojamento" required>
+        </div>
+        <div class="campo">
+            <label for="lotes-quantidade">Quantidade inicial *</label>
+            <input type="number" id="lotes-quantidade" name="quantidade" required min="1" step="1">
+        </div>
+        <div class="campo">
+            <label for="lotes-peso_medio">Peso médio inicial (g)</label>
+            <input type="number" id="lotes-peso_medio" name="peso_medio" min="0" step="0.1">
+        </div>
+        <div class="campo">
+            <label for="lotes-origem">Origem</label>
+            <select id="lotes-origem" name="origem"><option value="">Selecione</option><option>Produção própria</option><option>Aquisição externa</option><option>Doação</option></select>
+        </div>
+        <div class="campo largura-total">
+            <label for="lotes-observacoes">Observações</label>
+            <textarea id="lotes-observacoes" name="observacoes" rows="2"></textarea>
+        </div>
+        <div class="campo">
+            <label for="lotes-fornecedor_id">Fornecedor (se houver)</label>
+            <select id="lotes-fornecedor_id" name="fornecedor_id" data-origem="fornecedores" data-rotulo="razao_social"><option value="">Selecione</option></select>
+        </div>
+        
+        <div class="largura-total acoes">
+            <button type="submit">Cadastrar</button>
+            <button type="reset" class="secundario">Limpar</button>
+        </div>
+    </form>
+    <p class="mensagem" role="status"></p>
+    <div class="consulta"><h3>Registros cadastrados</h3><button type="button" class="atualizar secundario">Atualizar</button></div>
+    <div class="tabela"><table>
+        <thead><tr><th>ID</th>
+                <th data-campo="codigo">Código do lote</th>
+                <th data-campo="especie_id">Espécie</th>
+                <th data-campo="tanque_id">Tanque</th>
+                <th data-campo="data_alojamento">Data de alojamento</th>
+                <th data-campo="quantidade">Quantidade inicial</th>
+                <th data-campo="peso_medio">Peso médio inicial (g)</th>
+                <th data-campo="origem">Origem</th>
+                <th data-campo="observacoes">Observações</th>
+                <th data-campo="fornecedor_id">Fornecedor (se houver)</th>
+        </tr></thead><tbody></tbody>
+    </table></div>
+</section>
+{% endblock %}

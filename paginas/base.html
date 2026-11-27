@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Aquicultura{% endblock %} | Aquicultura</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a class="marca" href="/">Aquicultura</a>
+            <p>Sistema de gestão de peixes e camarões</p>
+        </div>
+    </header>
+    <nav aria-label="Menu principal">
+      <div class="container menu">
+        <a href="/">Início</a>
+        <a href="/especies.html">Espécies</a>
+        <a href="/tanques.html">Tanques</a>
+        <a href="/lotes.html">Lotes</a>
+        <a href="/alimentacao.html">Alimentação</a>
+        <a href="/qualidade-agua.html">Qualidade da água</a>
+        <a href="/tratamentos.html">Tratamentos</a>
+        <a href="/mortalidade.html">Mortalidade</a>
+        <a href="/clientes.html">Clientes</a>
+        <a href="/equipamentos.html">Equipamentos</a>
+        <a href="/vendas.html">Vendas</a>
+        <a href="/fornecedores.html">Fornecedores</a>
+        <a href="/manutencoes.html">Manutenções</a>
+        <a href="/funcionarios.html">Funcionários</a>
+      </div>
+    </nav>
+    <main class="container">
+        {% block conteudo %}{% endblock %}
+    </main>
+    <footer>Sistema de Gestão de Aquicultura · Projeto escolar</footer>
+</body>
+</html>

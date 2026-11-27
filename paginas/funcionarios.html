@@ -1,0 +1,58 @@
+{% extends "paginas/base.html" %}
+{% block titulo %}Funcionários{% endblock %}
+{% block conteudo %}
+<h1>Funcionários</h1>
+<p class="subtitulo">Campos com * são obrigatórios.</p>
+<section class="painel modulo" data-tabela="funcionarios">
+    <h2>Funcionários</h2>
+    
+    <form class="formulario">
+        <div class="campo">
+            <label for="funcionarios-nome">Nome completo *</label>
+            <input type="text" id="funcionarios-nome" name="nome" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="funcionarios-cpf">CPF *</label>
+            <input type="text" id="funcionarios-cpf" name="cpf" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="funcionarios-cargo">Cargo</label>
+            <select id="funcionarios-cargo" name="cargo"><option value="">Selecione</option><option>Gerente de produção</option><option>Técnico em aquicultura</option><option>Operário de cultivo</option><option>Alimentador</option><option>Técnico de manutenção</option><option>Técnico de qualidade de água</option><option>Outro</option></select>
+        </div>
+        <div class="campo">
+            <label for="funcionarios-telefone">Telefone</label>
+            <input type="tel" id="funcionarios-telefone" name="telefone" maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="funcionarios-email">E-mail</label>
+            <input type="email" id="funcionarios-email" name="email" maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="funcionarios-situacao">Situação *</label>
+            <select id="funcionarios-situacao" name="situacao" required><option value="">Selecione</option><option>Ativo</option><option>Afastado</option></select>
+        </div>
+        <div class="campo largura-total">
+            <label for="funcionarios-observacoes">Observações</label>
+            <textarea id="funcionarios-observacoes" name="observacoes" rows="2"></textarea>
+        </div>
+        
+        <div class="largura-total acoes">
+            <button type="submit">Cadastrar</button>
+            <button type="reset" class="secundario">Limpar</button>
+        </div>
+    </form>
+    <p class="mensagem" role="status"></p>
+    <div class="consulta"><h3>Registros cadastrados</h3><button type="button" class="atualizar secundario">Atualizar</button></div>
+    <div class="tabela"><table>
+        <thead><tr><th>ID</th>
+                <th data-campo="nome">Nome completo</th>
+                <th data-campo="cpf">CPF</th>
+                <th data-campo="cargo">Cargo</th>
+                <th data-campo="telefone">Telefone</th>
+                <th data-campo="email">E-mail</th>
+                <th data-campo="situacao">Situação</th>
+                <th data-campo="observacoes">Observações</th>
+        </tr></thead><tbody></tbody>
+    </table></div>
+</section>
+{% endblock %}

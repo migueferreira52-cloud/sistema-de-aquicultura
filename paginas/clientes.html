@@ -1,0 +1,28 @@
+{% extends "paginas/base.html" %}
+{% block titulo %}Clientes{% endblock %}
+{% block conteudo %}
+<h1>Clientes</h1>
+<p class="subtitulo">Campos com * são obrigatórios.</p>
+<section class="painel modulo" data-tabela="clientes">
+    <h2>Clientes</h2>
+    
+    <form class="formulario">
+        <div class="campo">
+            <label for="clientes-nome">Nome do cliente *</label>
+            <input type="text" id="clientes-nome" name="nome" required maxlength="150">
+        </div>
+        
+        <div class="largura-total acoes">
+            <button type="submit">Cadastrar</button>
+            <button type="reset" class="secundario">Limpar</button>
+        </div>
+    </form>
+    <p class="mensagem" role="status"></p>
+    <div class="consulta"><h3>Registros cadastrados</h3><button type="button" class="atualizar secundario">Atualizar</button></div>
+    <div class="tabela"><table>
+        <thead><tr><th>ID</th>
+                <th data-campo="nome">Nome do cliente</th>
+        </tr></thead><tbody></tbody>
+    </table></div>
+</section>
+{% endblock %}

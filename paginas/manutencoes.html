@@ -1,0 +1,63 @@
+{% extends "paginas/base.html" %}
+{% block titulo %}Manutenções{% endblock %}
+{% block conteudo %}
+<h1>Manutenções</h1>
+<p class="subtitulo">Campos com * são obrigatórios.</p>
+<section class="painel modulo" data-tabela="manutencoes">
+    <h2>Manutenções</h2>
+    <p>Selecione somente um tanque ou um equipamento.</p>
+    <form class="formulario">
+        <div class="campo">
+            <label for="manutencoes-data">Data *</label>
+            <input type="date" id="manutencoes-data" name="data" required>
+        </div>
+        <div class="campo">
+            <label for="manutencoes-tanque_id">Tanque</label>
+            <select id="manutencoes-tanque_id" name="tanque_id" data-origem="tanques" data-rotulo="identificacao"><option value="">Selecione</option></select>
+        </div>
+        <div class="campo">
+            <label for="manutencoes-tipo">Tipo *</label>
+            <select id="manutencoes-tipo" name="tipo" required><option value="">Selecione</option><option>Preventiva</option><option>Corretiva</option></select>
+        </div>
+        <div class="campo largura-total">
+            <label for="manutencoes-descricao">Descrição *</label>
+            <textarea id="manutencoes-descricao" name="descricao" required rows="2"></textarea>
+        </div>
+        <div class="campo">
+            <label for="manutencoes-custo">Custo estimado (R$)</label>
+            <input type="number" id="manutencoes-custo" name="custo" min="0" step="0.01">
+        </div>
+        <div class="campo">
+            <label for="manutencoes-funcionario_id">Funcionário responsável</label>
+            <select id="manutencoes-funcionario_id" name="funcionario_id" data-origem="funcionarios" data-rotulo="nome"><option value="">Selecione</option></select>
+        </div>
+        <div class="campo">
+            <label for="manutencoes-proxima_manutencao">Próxima manutenção</label>
+            <input type="date" id="manutencoes-proxima_manutencao" name="proxima_manutencao">
+        </div>
+        <div class="campo">
+            <label for="manutencoes-equipamento_id">Equipamento</label>
+            <select id="manutencoes-equipamento_id" name="equipamento_id" data-origem="equipamentos" data-rotulo="nome"><option value="">Selecione</option></select>
+        </div>
+        
+        <div class="largura-total acoes">
+            <button type="submit">Cadastrar</button>
+            <button type="reset" class="secundario">Limpar</button>
+        </div>
+    </form>
+    <p class="mensagem" role="status"></p>
+    <div class="consulta"><h3>Registros cadastrados</h3><button type="button" class="atualizar secundario">Atualizar</button></div>
+    <div class="tabela"><table>
+        <thead><tr><th>ID</th>
+                <th data-campo="data">Data</th>
+                <th data-campo="tanque_id">Tanque</th>
+                <th data-campo="tipo">Tipo</th>
+                <th data-campo="descricao">Descrição</th>
+                <th data-campo="custo">Custo estimado (R$)</th>
+                <th data-campo="funcionario_id">Funcionário responsável</th>
+                <th data-campo="proxima_manutencao">Próxima manutenção</th>
+                <th data-campo="equipamento_id">Equipamento</th>
+        </tr></thead><tbody></tbody>
+    </table></div>
+</section>
+{% endblock %}

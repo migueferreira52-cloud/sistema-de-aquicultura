@@ -1,0 +1,63 @@
+{% extends "paginas/base.html" %}
+{% block titulo %}Fornecedores{% endblock %}
+{% block conteudo %}
+<h1>Fornecedores</h1>
+<p class="subtitulo">Campos com * são obrigatórios.</p>
+<section class="painel modulo" data-tabela="fornecedores">
+    <h2>Fornecedores</h2>
+    
+    <form class="formulario">
+        <div class="campo">
+            <label for="fornecedores-razao_social">Razão social / nome *</label>
+            <input type="text" id="fornecedores-razao_social" name="razao_social" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="fornecedores-tipo_documento">Tipo de documento *</label>
+            <select id="fornecedores-tipo_documento" name="tipo_documento" required><option value="">Selecione</option><option>CPF</option><option>CNPJ</option></select>
+        </div>
+        <div class="campo">
+            <label for="fornecedores-documento">CNPJ / CPF *</label>
+            <input type="text" id="fornecedores-documento" name="documento" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="fornecedores-tipo_contato">Tipo de contato *</label>
+            <select id="fornecedores-tipo_contato" name="tipo_contato" required><option value="">Selecione</option><option>Telefone</option><option>E-mail</option></select>
+        </div>
+        <div class="campo">
+            <label for="fornecedores-contato">Contato *</label>
+            <input type="text" id="fornecedores-contato" name="contato" required maxlength="150">
+        </div>
+        <div class="campo">
+            <label for="fornecedores-tipo_insumo">Tipo de insumo</label>
+            <select id="fornecedores-tipo_insumo" name="tipo_insumo"><option value="">Selecione</option><option>Ração</option><option>Medicamento</option><option>Equipamento</option><option>Produtos químicos</option><option>Outro</option></select>
+        </div>
+        <div class="campo">
+            <label for="fornecedores-endereco">Endereço</label>
+            <input type="text" id="fornecedores-endereco" name="endereco" maxlength="150">
+        </div>
+        <div class="campo largura-total">
+            <label for="fornecedores-observacoes">Observações</label>
+            <textarea id="fornecedores-observacoes" name="observacoes" rows="2"></textarea>
+        </div>
+        
+        <div class="largura-total acoes">
+            <button type="submit">Cadastrar</button>
+            <button type="reset" class="secundario">Limpar</button>
+        </div>
+    </form>
+    <p class="mensagem" role="status"></p>
+    <div class="consulta"><h3>Registros cadastrados</h3><button type="button" class="atualizar secundario">Atualizar</button></div>
+    <div class="tabela"><table>
+        <thead><tr><th>ID</th>
+                <th data-campo="razao_social">Razão social / nome</th>
+                <th data-campo="tipo_documento">Tipo de documento</th>
+                <th data-campo="documento">CNPJ / CPF</th>
+                <th data-campo="tipo_contato">Tipo de contato</th>
+                <th data-campo="contato">Contato</th>
+                <th data-campo="tipo_insumo">Tipo de insumo</th>
+                <th data-campo="endereco">Endereço</th>
+                <th data-campo="observacoes">Observações</th>
+        </tr></thead><tbody></tbody>
+    </table></div>
+</section>
+{% endblock %}
