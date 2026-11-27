@@ -1,0 +1,66 @@
+MODELAGEM DO BANCO DE DADOS - AQUICULTURA
+=========================================
+
+1. MODELO CONCEITUAL
+01_modelo_conceitual.png: entidades, atributos próprios (id sublinhado),
+relacionamentos e cardinalidades (mínimo, máximo). As chaves estrangeiras
+aparecem no modelo lógico, não como atributos duplicados no conceitual.
+
+2. MODELO LÓGICO
+02_modelo_logico.png: tabelas, todos os campos, tipos SQLite, PK e FK.
+Cada FK obrigatória corresponde a (1,1); uma FK opcional a (0,1).
+Uma entidade principal pode ter zero ou vários registros dependentes (0,n).
+O lado próximo à entidade principal informa quantos registros dela podem
+estar ligados a um registro dependente.
+
+3. MODELO FÍSICO
+../banco/modelo_fisico.sql: criação das 15 tabelas, 108 campos e 19 FKs.
+A estrutura foi adaptada para SQLite: INTEGER, REAL, TEXT.
+As datas e horários são guardados como texto; a PK id é autoincrementada.
+Os campos e relacionamentos originais foram mantidos.
+
+4. RELACIONAMENTOS
+Espécie -> Lote: (1,1) : (0,n)
+Tanque -> Lote: (1,1) : (0,n)
+Fornecedor -> Lote: (0,1) : (0,n)
+Tanque -> Equipamento: (0,1) : (0,n)
+Lote -> Alimentação: (1,1) : (0,n)
+Alimentação -> Registro de alimentação: (1,1) : (0,n)
+Funcionário -> Registro de alimentação: (0,1) : (0,n)
+Tanque -> Qualidade da água: (1,1) : (0,n)
+Funcionário -> Qualidade da água: (0,1) : (0,n)
+Lote -> Tratamento: (1,1) : (0,n)
+Funcionário -> Tratamento: (0,1) : (0,n)
+Lote -> Mortalidade: (1,1) : (0,n)
+Funcionário -> Mortalidade: (0,1) : (0,n)
+Tanque -> Manutenção: (0,1) : (0,n)
+Equipamento -> Manutenção: (0,1) : (0,n)
+Funcionário -> Manutenção: (0,1) : (0,n)
+Cliente -> Venda: (1,1) : (0,n)
+Venda -> Item de venda: (1,1) : (0,n)
+Lote -> Item de venda: (1,1) : (0,n)
+
+Uma manutenção tem exatamente um tanque OU um equipamento, nunca ambos.
+Uma venda pode possuir vários lotes; um lote pode participar de várias
+vendas. A tabela itens_venda resolve o relacionamento N:N por duas FKs.
+Enquanto a venda está em cadastro, ela pode ainda não conter itens.
+
+5. BASE NAS APOSTILAS
+POO (4º bimestre), pp. 4-5, 7-10, 12-15: classes, to_dict, SQLite,
+DAO, Flask, JSON, rotas GET/POST/PUT/DELETE e integração com Fetch.
+DWS (4º bimestre), pp. 5, 7-10: Fetch, async/await, JSON, CORS, DOM,
+formulários, CRUD e mensagens de retorno.
+Banco de Dados (4º bimestre), pp. 4-5, 7-24, 30, 32-33, 38: PK/FK,
+relacionamentos, JOINs, subconsultas, paginação, SQL e rubrica AV2.
+
+ADAPTAÇÕES EXPLÍCITAS
+A apostila de POO utiliza SQLite; a de Banco de Dados usa MySQL nos
+exemplos. Escolheu-se SQLite no aplicativo para não usar PyMySQL.
+O DAO compartilhado adapta o padrão ensinado para evitar 15 cópias.
+Path, executescript, PRAGMA foreign_keys, rowcount e as restrições
+CHECK/UNIQUE originais são detalhes auxiliares que não aparecem como
+exemplos completos nas apostilas fornecidas. São necessários para
+localizar/criar o banco, garantir vínculos ou manter regras originais.
+O código HTML/CSS existente foi reaproveitado. Não há dados reais,
+novos módulos ou tabelas adicionados. A edição e exclusão foram ligadas
+às rotas CRUD, conforme a apostila de DWS.
